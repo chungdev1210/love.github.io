@@ -14,6 +14,25 @@ var bgMusicControls = true; // Show UI music control
 // animation start after 1000 miliseconds
 setTimeout(init, 1000);
 
+// Handle autoplay music - unmute after user interaction
+var bgMusic = document.getElementById("bgMusic");
+var musicStarted = false;
+
+function startMusic() {
+   if (!musicStarted && bgMusic) {
+      bgMusic.muted = false;
+      bgMusic.play().catch(function(error) {
+         console.log("Audio autoplay failed:", error);
+      });
+      musicStarted = true;
+   }
+}
+
+// Try to start music on first user interaction
+document.addEventListener('click', startMusic, { once: true });
+document.addEventListener('touchstart', startMusic, { once: true });
+document.addEventListener('keydown', startMusic, { once: true });
+
 var odrag = document.getElementById("drag-container");
 var ospin = document.getElementById("spin-container");
 var aImg = ospin.getElementsByTagName("img");
