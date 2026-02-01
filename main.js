@@ -1,9 +1,9 @@
 // You can change global variables here:
-var radius = 180; // how big of the radius
+var radius = 240; // how big of the radius
 var autoRotate = true; // auto rotate or not
-var rotateSpeed = -60; // unit: seconds/360 degrees
-var imgWidth = 120; // width of images (unit: px)
-var imgHeight = 170; // height of images (unit: px)
+var rotateSpeed = -90; // unit: seconds/360 degrees (slower rotation)
+var imgWidth = 160; // width of images (unit: px)
+var imgHeight = 220; // height of images (unit: px)
 
 // Link of background music - set 'null' if you dont want to play background music
 var bgMusicURL =
@@ -164,7 +164,7 @@ uniform float time;
 #define POINT_COUNT 8
 
 vec2 points[POINT_COUNT];
-const float speed = -0.5;
+const float speed = -0.25;
 const float len = 0.25;
 float intensity = 1.3;
 float radius = 0.008;
@@ -266,7 +266,7 @@ void main(){
 	pos.y /= widthHeightRatio;
 	//Shift upwards to centre heart
 	pos.y += 0.02;
-	float scale = 0.000015 * height;
+	float scale = 0.000012 * height;
 	
 	float t = time;
     
